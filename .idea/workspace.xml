@@ -1,7 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2946dbd-a4a4-478b-a7fc-1dd25bc16f76" name="Default Changelist" comment="" />
+    <list default="true" id="e2946dbd-a4a4-478b-a7fc-1dd25bc16f76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/HCIS-MENES.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/HCSIApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/constant/Roles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/constant/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/controller/PatientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/controller/PhysicianController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/AdminGetAllPatientDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/CreateMedicalAppointmentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/CreateUpdateTreatmentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/GetAllPhysiciansDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/GetMedicalRecordDtoList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/PatientDetailsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/PatientInsuranceDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/PatientRegisterDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/PatientResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/PhysicianCreateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/PhysicianDetailDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/PhysicianGetResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/PhysicianUpdateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/PhysiciansMedicalRecordGetListDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/SingleMedicalRecordDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/dto/TreatmentUpdateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/Appointments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/Authority.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/Insurance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/MedicalRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/Physician.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/Therapy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/Treatment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/UnApprovedAppoints.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/filters/JwtRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/models/AuthenticationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/models/AuthenticationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/repositories/AuthorityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/repositories/InsuranceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/repositories/MedicalRecordRespository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/repositories/PatientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/repositories/PhysicianRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/repositories/TreatmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/service/MyUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/HCIS/MENES/util/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/HCIS/MENES/HCSIApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/HELP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/HSCI-MENES.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/HCSIApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/constant/Roles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/constant/Status.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/controller/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/controller/AuthenticationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/controller/PatientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/controller/PhysicianController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/AdminGetAllPatientDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/CreateMedicalAppointmentDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/CreateUpdateTreatmentDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/GetAllPhysiciansDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/GetMedicalRecordDtoList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/PatientDetailsDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/PatientInsuranceDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/PatientRegisterDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/PatientResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/PhysicianCreateDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/PhysicianDetailDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/PhysicianGetResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/PhysicianUpdateDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/PhysiciansMedicalRecordGetListDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/SingleMedicalRecordDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/dto/TreatmentUpdateDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/Appointments.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/Authority.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/Insurance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/MedicalRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/Patient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/Physician.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/Therapy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/Treatment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/UnApprovedAppoints.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/filters/JwtRequestFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/models/AuthenticationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/models/AuthenticationResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/repositories/AuthorityRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/repositories/InsuranceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/repositories/MedicalRecordRespository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/repositories/PatientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/repositories/PhysicianRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/repositories/TreatmentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/service/MyUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/HSCI/menesklou/util/JwtUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/HSCI/menesklou/HCSIApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/HsciFiverApplication$WebSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/HsciFiverApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/constant/Roles.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/constant/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/controller/AdminController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/controller/AuthenticationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/controller/PatientController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/controller/PhysicianController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/AdminGetAllPatientDto$GetPatientDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/AdminGetAllPatientDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/CreateMedicalAppointmentDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/CreateUpdateTreatmentDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/GetAllPhysiciansDto$PhysicianListDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/GetAllPhysiciansDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/GetMedicalRecordDtoList$MedicalListDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/GetMedicalRecordDtoList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PatientDetailsDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PatientInsuranceDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PatientRegisterDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PatientResponseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PhysicianCreateDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PhysicianDetailDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PhysicianGetResponseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PhysicianUpdateDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PhysiciansMedicalRecordGetListDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/PysiciansMedicalRecordGetDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/SingleMedicalRecordDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/dto/TreatmentUpdateDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/Appointments.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/Authority.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/Insurance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/MedicalRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/Patient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/Physician.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/Therapy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/Treatment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/UnApprovedAppoints.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/filters/JwtRequestFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/models/AuthenticationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/models/AuthenticationResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/repositories/AuthorityRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/repositories/InsuranceRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/repositories/MedicalRecordRespository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/repositories/PatientRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/repositories/PhysicianRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/repositories/TreatmentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/service/MyUserDetailsService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/HSCI/HSCIFIVER/util/JwtUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/HSCI/HSCIFIVER/HsciFiverApplicationTests.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +173,7 @@
     <select />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1ZXBaj1iWDqXUCcxAtgZgzX6kqM" />
@@ -38,19 +190,43 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager">
-    <configuration name="HsciFiverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="HSCI-FIVER" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="HSCI.menesklou.HCSIApplication" />
+  <component name="RunManager" selected="Spring Boot.HCSIApplication">
+    <configuration name="HCSIApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="HCIS-MENES" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HCIS.MENES.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="HCIS.MENES.HCSIApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HSCIApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="HSCI-FIVER" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="HSCI.MENES.HCSIApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.HSCIApplication" />
+      <item itemvalue="Spring Boot.HCSIApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.HCSIApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -65,6 +241,7 @@
       <workItem from="1584975625007" duration="262000" />
       <workItem from="1584975995769" duration="324000" />
       <workItem from="1584979393150" duration="774000" />
+      <workItem from="1584981672428" duration="2295000" />
     </task>
     <servers />
   </component>
@@ -72,14 +249,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584979429029">
+    <state x="2472" y="178" key="#Notifications" timestamp="1584984170432">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584979429029" />
-    <state x="2609" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584976129465">
+    <state x="2472" y="178" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584984170432" />
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584981930356">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2609" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584976129465" />
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584981930356" />
+    <state x="2609" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584981869266">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2609" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584981869266" />
     <state x="2728" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584975685447">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -92,37 +273,49 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584976301661" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584979595976">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584982104144">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584979595976" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584979595976">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982104144" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584982104143">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584979595976" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584979595976">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982104143" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584982104143">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584979595976" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584979595976">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982104143" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584982104143">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584979595976" />
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1584979595977">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982104143" />
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1584982104144">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584979595977" />
-    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1584979595977">
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982104144" />
+    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1584982104144">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584979595977" />
-    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1584979595977">
+    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982104144" />
+    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1584982104144">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584979595977" />
-    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1584979595977">
+    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982104144" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1584982104144">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584979595977" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982104144" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1584983935828">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584983935828" />
+    <state x="2012" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584982548122">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2012" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982548122" />
+    <state x="2689" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584982500085">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2689" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584982500085" />
   </component>
 </project>

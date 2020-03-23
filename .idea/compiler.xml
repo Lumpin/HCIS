@@ -6,15 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="HCIS-MENES" />
         <module name="HSCI-FIVER" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="HCIS-MENES" target="1.8" />
       <module name="HSCI-FIVER" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="HCIS-MENES" options="-parameters" />
       <module name="HSCI-FIVER" options="-parameters" />
     </option>
   </component>

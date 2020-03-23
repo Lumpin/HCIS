@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'HSCI.HSCI-FIVER' is invalid and this project uses 'HSCI.menesklou' instead.
+* The original package name 'HSCI.HSCI-FIVER' is invalid and this project uses 'HSCI.MENES' instead.
 
 # Getting Started
 
