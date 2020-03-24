@@ -12,7 +12,7 @@ import PatientTreatment from "./components/profiles/patientTreatment";
 import AdminLogin from "./components/auth/AdminLogin";
 import PhyRegisterByAdmin from "./components/auth/phyRegisterbyAdmin";
 import AppointPhy from "./components/patientsComponents/appointPhy";
-import MeicalRecordDetails from "./components/physiciansComponents/medicalRecordDetails";
+import MedicalRecordDetails from "./components/physiciansComponents/medicalRecordDetails";
 import Landing from "./components/layout/Landing";
 import AdminPanel from "./components/layout/AdminPanel";
 import DeletePhysician from "./components/adminComponents/deletePhysician";
@@ -54,7 +54,7 @@ function App() {
         <Route
           exact
           path="/physician/patient/record"
-          component={MeicalRecordDetails}
+          component={MedicalRecordDetails}
         />
 
         {/* Both Can see depending on whos login */}

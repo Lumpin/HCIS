@@ -28,6 +28,7 @@ import java.util.Optional;
 
 @SpringBootApplication
 public class HCISApplication {
+
 	@Autowired
 	private PhysicianRepository physicianRepository;
 	@Autowired
@@ -35,8 +36,8 @@ public class HCISApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HCISApplication.class, args);
 
-
 	}
+
 	@PostConstruct
 	private void init(){
 		Optional<User> adminCheck = userRepository.findById((long)1);
@@ -48,8 +49,6 @@ public class HCISApplication {
 			userRepository.save(user);
 		}
 	}
-
-
 
 
 	@Configuration

@@ -32,7 +32,6 @@ public class AdminController {
     private PhysicianRepository physicianRepository;
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private ModelMapper modelMapper;
 
@@ -51,11 +50,11 @@ public class AdminController {
         Physician physician = new Physician();
         physician.setUser(user);
         physicianRepository.save(physician);
-        return new ResponseEntity<>("Sucess",HttpStatus.OK);
+        return new ResponseEntity<>("Success",HttpStatus.OK);
     }
+
     @PostMapping("/deletePhysician/")
     @PreAuthorize("hasRole('ADMIN')")
-
     public ResponseEntity<?> deletePhysician(@RequestParam Long physicianId) throws Exception{
         Physician physician = physicianRepository.getOne(physicianId);
         if(Objects.isNull(physician))
@@ -68,7 +67,6 @@ public class AdminController {
 
     @GetMapping("/admin/getallpatients")
     @PreAuthorize("hasRole('ADMIN')")
-
     public ResponseEntity<?> getAllPatients(){
         AdminGetAllPatientDto adminGetAllPatientDto = new AdminGetAllPatientDto();
         List<Patient> patients = patientRepository.findAll();
@@ -78,6 +76,7 @@ public class AdminController {
         }
         return new ResponseEntity<>(adminGetAllPatientDto,HttpStatus.OK);
     }
+
     @PostMapping("/admin/deletePatient/")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deletePatient(@RequestParam Long patientId) throws Exception{
