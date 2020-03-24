@@ -10,8 +10,6 @@ import HCIS.MENES.repositories.MedicalRecordRespository;
 import HCIS.MENES.repositories.PhysicianRepository;
 import HCIS.MENES.repositories.TreatmentRepository;
 import HCIS.MENES.repositories.UserRepository;
-import HCIS.MENES.dto.*;
-import HCIS.MENES.entity.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

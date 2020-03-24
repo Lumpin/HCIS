@@ -1,10 +1,10 @@
 package HCIS.MENES;
 
-import HCIS.MENES.entity.User;
-import HCIS.MENES.repositories.PhysicianRepository;
-import HCIS.MENES.repositories.UserRepository;
 import HCIS.MENES.constant.Roles;
 import HCIS.MENES.filters.JwtRequestFilter;
+import HCIS.MENES.repositories.PhysicianRepository;
+import HCIS.MENES.repositories.UserRepository;
+import HCIS.MENES.entity.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -27,13 +27,13 @@ import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @SpringBootApplication
-public class HCSIApplication {
+public class HCISApplication {
 	@Autowired
 	private PhysicianRepository physicianRepository;
 	@Autowired
 	private UserRepository userRepository;
 	public static void main(String[] args) {
-		SpringApplication.run(HCSIApplication.class, args);
+		SpringApplication.run(HCISApplication.class, args);
 
 
 	}

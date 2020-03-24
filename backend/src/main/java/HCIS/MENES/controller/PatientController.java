@@ -5,9 +5,6 @@ import HCIS.MENES.constant.Status;
 import HCIS.MENES.dto.*;
 import HCIS.MENES.entity.*;
 import HCIS.MENES.repositories.*;
-import HCIS.MENES.dto.*;
-import HCIS.MENES.entity.*;
-import HCIS.MENES.repositories.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -161,7 +158,7 @@ public class PatientController {
 
     }
     @GetMapping("/getamedicalrecord")
-    @PreAuthorize("hasRole('PATIENT')")
+    @PreAuthorize("hasAnyRole('PATIENT','PHYSICIAN')")
 
     public ResponseEntity<?> getMedicalRecord(@RequestParam Long medicalRecordId) {
 
