@@ -43,4 +43,10 @@ Now the frontend should start. If browser does not open automatically, open your
 
 >http://localhost:3000/
 
+You can now login as admin (needed for registering physicians) with following credentials:
+
+>username: admin 
+>
+>password: admin
+
 ## Run deployment project

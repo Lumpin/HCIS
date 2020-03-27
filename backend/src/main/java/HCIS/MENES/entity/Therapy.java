@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/* Entity for a therapy object; the therapy itself is stored as a String
+
+ */
+
 @Data
 @Entity
 public class Therapy {

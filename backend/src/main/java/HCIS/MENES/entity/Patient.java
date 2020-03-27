@@ -7,6 +7,10 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.util.Date;
 
+/* Entity for the patient object consisting of id, name, surname, email, date, gender, address, phoneNumber and an insurance object
+
+ */
+
 @Data
 @Entity
 public class Patient {

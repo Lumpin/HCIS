@@ -7,6 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
+
+/* Entity for a treatment object
+
+ */
+
 @Data
 @Entity
 public class Treatment {

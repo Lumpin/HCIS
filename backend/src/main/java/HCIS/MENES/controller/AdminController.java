@@ -32,6 +32,7 @@ public class AdminController {
     private PhysicianRepository physicianRepository;
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private ModelMapper modelMapper;
 
@@ -76,7 +77,6 @@ public class AdminController {
         }
         return new ResponseEntity<>(adminGetAllPatientDto,HttpStatus.OK);
     }
-
     @PostMapping("/admin/deletePatient/")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deletePatient(@RequestParam Long patientId) throws Exception{

@@ -26,6 +26,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import javax.annotation.PostConstruct;
 import java.util.Optional;
 
+
+/* Main application of the backend; configures the web security and creates a initial admin user with username: admin and password: admin
+	--> runs the  application
+
+ */
 @SpringBootApplication
 public class HCISApplication {
 
@@ -50,7 +55,9 @@ public class HCISApplication {
 		}
 	}
 
-
+	/*
+		class for configuring web security
+	 */
 	@Configuration
 	@EnableWebSecurity
 	@EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -60,22 +67,41 @@ public class HCISApplication {
 		@Autowired
 		private JwtRequestFilter jwtRequestFilter;
 
+		/**
+		 *
+		 * @param auth
+		 * @throws Exception
+		 */
 		@Autowired
 		public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 			auth.userDetailsService(myUserDetailsService);
 		}
 
+		/**
+		 *
+		 * @return
+		 */
 		@Bean
 		public PasswordEncoder passwordEncoder() {
 			return NoOpPasswordEncoder.getInstance();
 		}
 
+		/**
+		 *
+		 * @return
+		 * @throws Exception
+		 */
 		@Override
 		@Bean
 		public AuthenticationManager authenticationManagerBean() throws Exception {
 			return super.authenticationManagerBean();
 		}
 
+		/**
+		 *
+		 * @param httpSecurity
+		 * @throws Exception
+		 */
 		@Override
 		protected void configure(HttpSecurity httpSecurity) throws Exception {
 
@@ -87,6 +113,11 @@ public class HCISApplication {
 			httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
 		}
+
+		/**
+		 *
+		 * @return
+		 */
 		@Bean
 		public ModelMapper modelMapper() {
 			return new ModelMapper();

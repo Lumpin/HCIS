@@ -11,6 +11,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+/*
+
+ */
 @Data
 @Entity
 public class User implements UserDetails {
@@ -25,8 +29,6 @@ public class User implements UserDetails {
     @Column
     private Roles role;
 
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
@@ -36,31 +38,55 @@ public class User implements UserDetails {
         return list;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getUsername() {
         return username;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean isAccountNonExpired() {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean isAccountNonLocked() {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean isCredentialsNonExpired() {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean isEnabled() {
         return false;

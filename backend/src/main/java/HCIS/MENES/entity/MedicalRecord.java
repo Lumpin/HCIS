@@ -9,6 +9,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
+
+/* Entity for the medical record; consists of an id, name, treatment, physician, appointments and status
+
+
+ */
+
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Data
 @Entity

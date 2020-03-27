@@ -3,6 +3,9 @@ package HCIS.MENES.entity;
 import javax.persistence.*;
 import java.util.Date;
 
+/*
+    Entity for the object of unapproved appointments consisting of id, date, physician and medical record
+ */
 @Entity
 public class UnApprovedAppoints {
     @Id
@@ -17,6 +20,9 @@ public class UnApprovedAppoints {
     @OneToOne
     private MedicalRecord medicalRecord;
 
+    /**
+     *
+     */
     public UnApprovedAppoints() {
     }
 }
