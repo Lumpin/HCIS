@@ -31,7 +31,7 @@ public class AdminController {
     @Autowired
     private PatientRepository patientRepository;
     @Autowired
-    private MedicalRecordRespository medicalRecordRespository;
+    private MedicalRecordRespository medicalRecordRepository;
     @Autowired
     private PhysicianRepository physicianRepository;
     @Autowired
@@ -77,8 +77,8 @@ public class AdminController {
         Physician physician = physicianRepository.getOne(physicianId);
         if(Objects.isNull(physician))
             throw new Exception("Physician not found");
-        List<MedicalRecord> medicalRecordList = medicalRecordRespository.getMedicalRecordsByPhysicianId(physicianId);
-        medicalRecordRespository.deleteAll(medicalRecordList);
+        List<MedicalRecord> medicalRecordList = medicalRecordRepository.getMedicalRecordsByPhysicianId(physicianId);
+        medicalRecordRepository.deleteAll(medicalRecordList);
         physicianRepository.delete(physician);
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -114,8 +114,8 @@ public class AdminController {
         Patient patient = patientRepository.getOne(patientId);
         if(Objects.isNull(patient))
             throw new Exception("Patient not found");
-        List<MedicalRecord> medicalRecordList = medicalRecordRespository.getMedicalRecordsfromPatientId(patientId);
-        medicalRecordRespository.deleteAll(medicalRecordList);
+        List<MedicalRecord> medicalRecordList = medicalRecordRepository.getMedicalRecordsfromPatientId(patientId);
+        medicalRecordRepository.deleteAll(medicalRecordList);
         patientRepository.delete(patient);
         return new ResponseEntity<>(HttpStatus.OK);
     }
