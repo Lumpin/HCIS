@@ -10,6 +10,6 @@ import org.springframework.data.repository.query.Param;
 public interface PhysicianRepository extends JpaRepository<Physician,Long> {
 
     @Query("SELECT u FROM Physician u where u.user.username =:username")
-    public Physician getPhysicianByUsername(@Param("username") String username);
+    public Physician getphysicianbyusername(@Param("username") String username);
 
 }

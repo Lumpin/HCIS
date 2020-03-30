@@ -34,103 +34,100 @@ import java.util.Optional;
 @SpringBootApplication
 public class HCISApplication {
 
-	@Autowired
-	private PhysicianRepository physicianRepository;
-	@Autowired
-	private UserRepository userRepository;
+    @Autowired
+    private PhysicianRepository physicianRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-	/**
-	 * main method
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		SpringApplication.run(HCISApplication.class, args);
+    /**
+     * main method
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        SpringApplication.run(HCISApplication.class, args);
 
-	}
+    }
 
-	/**
-	 *
-	 */
-	@PostConstruct
-	private void init(){
-		Optional<User> adminCheck = userRepository.findById((long)1);
-		if(!adminCheck.isPresent()) {
-			User user = new User();
-			user.setUsername("admin");
-			user.setPassword("admin");
-			user.setRole(Roles.ADMIN);
-			userRepository.save(user);
-		}
-	}
+    /**
+     * initializes admin user
+     */
+    @PostConstruct
+    private void init() {
+        Optional<User> adminCheck = userRepository.findById((long) 1);
+        if (!adminCheck.isPresent()) {
+            User user = new User();
+            user.setUsername("admin");
+            user.setPassword("admin");
+            user.setRole(Roles.ADMIN);
+            userRepository.save(user);
+        }
+    }
 
-	/*
-		class for configuring web security
-	 */
-	@Configuration
-	@EnableWebSecurity
-	@EnableGlobalMethodSecurity(prePostEnabled = true)
-	class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-		@Autowired
-		private UserDetailsService myUserDetailsService;
-		@Autowired
-		private JwtRequestFilter jwtRequestFilter;
+    /*
+        class for configuring web security
+     */
+    @Configuration
+    @EnableWebSecurity
+    @EnableGlobalMethodSecurity(prePostEnabled = true)
+    class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+        @Autowired
+        private UserDetailsService myUserDetailsService;
+        @Autowired
+        private JwtRequestFilter jwtRequestFilter;
 
-		/**
+        /**
+         * @param auth AuthenticationManagerBuilder object
+         * @throws Exception thrown when error occurs
+         */
+        @Autowired
+        public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+            auth.userDetailsService(myUserDetailsService);
+        }
+
+        /**
+         * @return instance of password encoder
+         */
+        @Bean
+        public PasswordEncoder passwordEncoder() {
+        	return NoOpPasswordEncoder.getInstance();
+        }
+
+        /**
+         * @return authenticationManagerBean
+         * @throws Exception thrown when error occurs
+         */
+        @Override
+        @Bean
+        public AuthenticationManager authenticationManagerBean() throws Exception {
+            return super.authenticationManagerBean();
+        }
+
+        /**
+         * @param httpSecurity HttpSecurity
+         * @throws Exception thrown when error with configuration occurs
+         */
+        @Override
+        protected void configure(HttpSecurity httpSecurity) throws Exception {
+
+            httpSecurity.csrf().disable().
+                    authorizeRequests().antMatchers("/authenticate", "/register/**").permitAll().
+                    anyRequest().authenticated().and().
+                    exceptionHandling().and().sessionManagement()
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+            httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
+        }
+
+        /**
 		 *
-		 * @param auth AuthenticationManagerBuilder object
-		 * @throws Exception
-		 */
-		@Autowired
-		public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-			auth.userDetailsService(myUserDetailsService);
-		}
-
-		/**
-		 *
-		 * @return
-		 */
-		@Bean
-		public PasswordEncoder passwordEncoder() {
-			return NoOpPasswordEncoder.getInstance();
-		}
-
-		/**
-		 *
-		 * @return
-		 * @throws Exception
-		 */
-		@Override
-		@Bean
-		public AuthenticationManager authenticationManagerBean() throws Exception {
-			return super.authenticationManagerBean();
-		}
-
-		/**
-		 *
-		 * @param httpSecurity
-		 * @throws Exception
-		 */
-		@Override
-		protected void configure(HttpSecurity httpSecurity) throws Exception {
-
-			httpSecurity.csrf().disable().
-					authorizeRequests().antMatchers("/authenticate","/register/**").permitAll().
-					anyRequest().authenticated().and().
-					exceptionHandling().and().sessionManagement()
-					.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-			httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-
-		}
-
-		/**
-		 *
-		 * @return
-		 */
-		@Bean
-		public ModelMapper modelMapper() {
-			return new ModelMapper();
-		}
-	}
+         * @return ModelMapper
+         */
+        @Bean
+        public ModelMapper modelMapper() {
+        	return new ModelMapper();
+        }
+    }
 
 
 }

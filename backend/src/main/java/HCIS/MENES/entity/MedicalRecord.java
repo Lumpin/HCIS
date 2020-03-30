@@ -14,7 +14,6 @@ import java.util.UUID;
 
 
  */
-
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Data
 @Entity

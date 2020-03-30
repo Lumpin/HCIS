@@ -9,7 +9,6 @@ import javax.persistence.*;
 /* Entity for the physician object consisting of id, name, surname, email, address and phonenumber
 
  */
-
 @Data
 @Entity
 public class Physician {
@@ -25,7 +24,7 @@ public class Physician {
 
     private String address;
 
-    private Long phonenumber;
+    private Long phoneNumber;
 
     @OneToOne
     @JsonIgnore

@@ -21,9 +21,9 @@ public class MyUserDetailsService implements UserDetailsService {
     /**
      * method for loading user
      *
-     * @param s
-     * @return
-     * @throws UsernameNotFoundException
+     * @param s represents username as String
+     * @return User object
+     * @throws UsernameNotFoundException thrown when user cannot be found
      */
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {

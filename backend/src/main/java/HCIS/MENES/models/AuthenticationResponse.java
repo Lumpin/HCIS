@@ -14,10 +14,10 @@ public class AuthenticationResponse implements Serializable {
 
     /**
      *
-     * @param jwt
-     * @param role
+     * @param jwt String of jwt token
+     * @param role String of role
      */
-    public AuthenticationResponse(String jwt,String role) {
+    public AuthenticationResponse(String jwt, String role) {
         this.jwt = jwt;
         this.role = Roles.valueOf(role);
     }
@@ -25,7 +25,7 @@ public class AuthenticationResponse implements Serializable {
 
     /**
      *
-     * @return
+     * @return String of jwt token
      */
     public String getJwt() {
         return jwt;
@@ -33,7 +33,7 @@ public class AuthenticationResponse implements Serializable {
 
     /**
      *
-     * @return
+     * @return String of role
      */
     public String getRole(){
         return role.toString();

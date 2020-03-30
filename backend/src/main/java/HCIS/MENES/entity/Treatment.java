@@ -11,7 +11,6 @@ import java.util.Date;
 /* Entity for a treatment object
 
  */
-
 @Data
 @Entity
 public class Treatment {

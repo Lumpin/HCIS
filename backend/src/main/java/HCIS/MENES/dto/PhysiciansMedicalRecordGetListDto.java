@@ -16,8 +16,8 @@ public class PhysiciansMedicalRecordGetListDto {
     List<PhysiciansMedicalRecordGetDto> list = new ArrayList<>();
 
     /**
-     *
-     * @param medicalRecord
+     * adds medical record  to physician medical record list
+     * @param medicalRecord medical record which is added to list
      */
     public void addToList(MedicalRecord medicalRecord){
         list.add(new PhysiciansMedicalRecordGetDto(medicalRecord.getRecordName(),

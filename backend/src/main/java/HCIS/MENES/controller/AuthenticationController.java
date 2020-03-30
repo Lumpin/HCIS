@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 
-/*  Controller class for the authentication mechanism, manages endpoints: /authenticate
+/*  Controller class for the authentication mechanism, manages endpoints
 
  */
 @RestController
@@ -33,10 +33,11 @@ public class AuthenticationController {
     private MyUserDetailsService userDetailsService;
 
     /**
+     * endpoint for authentication
      *
-     * @param authenticationRequest
-     * @return
-     * @throws Exception
+     * @param authenticationRequest request sent for authentication
+     * @return response for authentication
+     * @throws Exception thrown when username or password is incorrect
      */
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
@@ -44,7 +45,8 @@ public class AuthenticationController {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
             );
-        } catch (BadCredentialsException e) {
+        }
+        catch (BadCredentialsException e) {
             throw new Exception("Incorrect username or password", e);
         }
 
@@ -54,7 +56,7 @@ public class AuthenticationController {
 
         final String jwt = jwtTokenUtil.generateToken(userDetails);
         User user = userRepository.findUserByUsername(userDetails.getUsername());
-        return ResponseEntity.ok(new AuthenticationResponse(jwt, user.getRole().toString()));
+        return ResponseEntity.ok(new AuthenticationResponse(jwt,user.getRole().toString()));
     }
 
     /**

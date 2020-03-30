@@ -8,7 +8,6 @@ import javax.persistence.*;
 /* Entity for authority object consisting of a String containing the authority and an id
 
  */
-
 @Data
 @Entity
 public class Authority implements GrantedAuthority {
@@ -21,7 +20,7 @@ public class Authority implements GrantedAuthority {
 
     /**
      *
-     * @return
+     * @return String of authority
      */
     @Override
     public String getAuthority() {
@@ -30,7 +29,8 @@ public class Authority implements GrantedAuthority {
 
     /**
      *
-     * @return
+     *
+     * @return String of authority with id
      */
     @Override
     public String toString() {

@@ -9,9 +9,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserRepository extends JpaRepository<User,Long> {
 
     /**
+     * finds a user by its username
      *
-     * @param username
-     * @return
+     * @param username username of user
+     * @return returns User object
      */
     public User findUserByUsername(String username);
 

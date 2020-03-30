@@ -23,8 +23,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
-/*  Controller class for physicians with endpoints: /updatePhysician, /getPhysicianDetails, /makeTreatment, /getPatients, /getPatientDetails,
-    /getMedicalRecordById, /updateMedicalRecord, /updateTreatment, /dismissTreatment
+/*  Controller class for physicians with endpoints
 
  */
 @RestController
@@ -42,17 +41,18 @@ public class PhysicianController {
     private ModelMapper modelMapper;
 
     /**
+     *  endpoint for updating physician
      *
-     * @param principal
-     * @param physicianUpdateDto
-     * @return
+     * @param principal representing physician
+     * @param physicianUpdateDto dto for updating physician
+     * @return response message if physician is updated
      */
-    @PutMapping("/updatePhysician")
+    @PutMapping("/updatephysician")
     @PreAuthorize("hasRole('PHYSICIAN')")
-    public ResponseEntity<?> updatePhysicianDetail(Principal principal, @RequestBody PhysicianUpdateDto physicianUpdateDto) {
+    public ResponseEntity<?> updatePhysicianDetail(Principal principal, @RequestBody PhysicianUpdateDto physicianUpdateDto){
         User user = userRepository.findUserByUsername(principal.getName());
-        Physician physician = physicianRepository.getPhysicianByUsername(principal.getName());
-        Physician newPhysician = modelMapper.map(physicianUpdateDto, Physician.class);
+        Physician physician = physicianRepository.getphysicianbyusername(principal.getName());
+        Physician newPhysician = modelMapper.map(physicianUpdateDto,Physician.class);
         newPhysician.setId(physician.getId());
         newPhysician.setUser(physician.getUser());
         physician = physicianRepository.save(newPhysician);
@@ -60,35 +60,38 @@ public class PhysicianController {
     }
 
     /**
+     * endpoint for receiving physician detail
      *
-     * @param principal
-     * @return
+     * @param principal representing physician
+     * @return response dto of physician
      */
-    @GetMapping("/getPhysicianDetail")
+    @GetMapping("/getphysiciandetail")
     @PreAuthorize("hasRole('PHYSICIAN')")
-    public ResponseEntity<?> getPhysicianDetail(Principal principal) {
-        Physician physician = physicianRepository.getPhysicianByUsername(principal.getName());
-        PhysicianGetResponseDto physicianGetResponseDto = modelMapper.map(physician, PhysicianGetResponseDto.class);
-        return new ResponseEntity<>(physicianGetResponseDto, HttpStatus.OK);
+    public ResponseEntity<?> getPhysicianDetail(Principal principal){
+        Physician physician = physicianRepository.getphysicianbyusername(principal.getName());
+        PhysicianGetResponseDto physicianGetResponseDto = modelMapper.map(physician,PhysicianGetResponseDto.class);
+        return new ResponseEntity<>(physicianGetResponseDto,HttpStatus.OK);
     }
 
     /**
      *
-     * @param principal
-     * @param createUpdateTreatmentDto
-     * @param medicalRecordId
-     * @return
-     * @throws Exception
+     * endpoint for making a treatment
+     *
+     * @param principal representing physician
+     * @param createUpdateTreatmentDto dto for updating treatment
+     * @param medicalRecordId id of medical record
+     * @return response message for successfully adding a treatment
+     * @throws Exception thrown if the medical record cannot be found
      */
-    @PostMapping("/makeTreatment")
+    @PostMapping("/maketreatment")
     @PreAuthorize("hasRole('PATIENT')")
     public ResponseEntity<?> makeMedicalTreatment(Principal principal, @RequestBody CreateUpdateTreatmentDto createUpdateTreatmentDto
-            , @RequestParam Long medicalRecordId) throws Exception {
+            ,@RequestParam Long medicalRecordId) throws Exception{
 
         User user = userRepository.findUserByUsername(principal.getName());
-        Treatment treatment = modelMapper.map(createUpdateTreatmentDto, Treatment.class);
+        Treatment treatment = modelMapper.map(createUpdateTreatmentDto,Treatment.class);
         MedicalRecord medicalRecord = medicalRecordRepository.getOne(medicalRecordId);
-        if (medicalRecord == null) {
+        if(medicalRecord == null){
             throw new Exception("Medical Record Not Found");
         }
         medicalRecord.setTreatment(treatment);
@@ -98,31 +101,32 @@ public class PhysicianController {
     }
 
     /**
+     * endpoint for receiving list of all medical records of patients
      *
-     * @param principal
-     * @return
+     * @param principal represents physician
+     * @return dto of medical records list
      */
     @GetMapping("/getPatients")
     @PreAuthorize("hasRole('PHYSICIAN')")
-    public ResponseEntity<?> getAllPatients(Principal principal) {
+    public ResponseEntity<?> getAllPatients(Principal principal){
 
         List<MedicalRecord> medicalRecordList = medicalRecordRepository.getMedicalRecords(principal.getName());
-        PhysiciansMedicalRecordGetListDto physiciansMedicalRecordGetListDto = new PhysiciansMedicalRecordGetListDto();
-        for (MedicalRecord record : medicalRecordList
+        PhysiciansMedicalRecordGetListDto  physiciansMedicalRecordGetListDto = new PhysiciansMedicalRecordGetListDto();
+        for (MedicalRecord record:medicalRecordList
         ) {
             if (record.getStatus().toString().equals(Status.DISMISS.toString()))
                 continue;
             physiciansMedicalRecordGetListDto.addToList(record);
         }
-        return new ResponseEntity<>(physiciansMedicalRecordGetListDto, HttpStatus.OK);
+        return new ResponseEntity<>(physiciansMedicalRecordGetListDto,HttpStatus.OK);
 
     }
 
     /**
      *
-     * @param principal
-     * @param createUpdateTreatmentDto
-     * @return
+     * @param principal represents physician
+     * @param createUpdateTreatmentDto dto of updated treatment
+     * @return null
      */
     @PutMapping
     @PreAuthorize("hasRole('PHYSICIAN')")
@@ -133,42 +137,45 @@ public class PhysicianController {
     }
 
     /**
+     * endpoint for receiving patient details
      *
-     * @param patientid
-     * @return
+     * @param patientid id of patient
+     * @return medical record of patient with id patientId
      */
-    @GetMapping("/getPatientDetails")
+    @GetMapping("/getpatientDetails")
     @PreAuthorize("hasRole('PHYSICIAN')")
-    public ResponseEntity<?> getPatientMedicalRecords(@RequestParam Long patientid) {
-        return new ResponseEntity<>(medicalRecordRepository.getMedicalRecordsFromPatientId(patientid), HttpStatus.OK);
+    public ResponseEntity<?> getPatientMedicalRecords(@RequestParam Long patientid){
+        return new ResponseEntity<>(medicalRecordRepository.getMedicalRecordsfromPatientId(patientid),HttpStatus.OK);
     }
 
     /**
+     * endpoint for receiving medical record by id
      *
-     * @param medicalid
-     * @return
-     * @throws Exception
+     * @param medicalid id of medical record
+     * @return medical record
+     * @throws Exception thrown when no medical record can be found
      */
-    @GetMapping("/getMedicalRecordById")
+    @GetMapping("/getmedicalrecordbyid")
     @PreAuthorize("hasRole('PHYSICIAN')")
-    public ResponseEntity<?> getMedicalRecordById(@RequestParam Long medicalid) throws Exception {
-        MedicalRecord medicalRecord = medicalRecordRepository.getOne(medicalid);
-        if (Objects.isNull(medicalRecord))
+    public ResponseEntity<?> getMedicalRecordById(@RequestParam Long medicalid) throws Exception{
+        MedicalRecord medicalRecord=medicalRecordRepository.getOne(medicalid);
+        if(Objects.isNull(medicalRecord))
             throw new Exception("No medical record found");
-        return new ResponseEntity<>(medicalRecord, HttpStatus.OK);
+        return new ResponseEntity<>(medicalRecord,HttpStatus.OK);
     }
 
     /**
+     * endpoint for updating medical record
      *
-     * @param medicalRecord
-     * @return
-     * @throws Exception
+     * @param medicalRecord medical record to add
+     * @return status message if medical record is successfully added
+     * @throws Exception thrown when id of medical record is not valid
      */
-    @PutMapping("/updateMedicalRecord")
+    @PutMapping("/updatemedicalrecord")
     @PreAuthorize("hasRole('PHYSICIAN')")
     public ResponseEntity<?> updateMedicalRecord(@RequestParam MedicalRecord medicalRecord)
-            throws Exception {
-        if (Objects.isNull(medicalRecord.getId()))
+            throws Exception{
+        if(Objects.isNull(medicalRecord.getId()))
             throw new Exception("The id is not valid");
 
         medicalRecordRepository.save(medicalRecord);
@@ -176,19 +183,20 @@ public class PhysicianController {
     }
 
     /**
+     * endpoint for updating treatment
      *
-     * @param recordId
-     * @param treatmentUpdateDto
-     * @return
-     * @throws Exception
+     * @param recordId id of medical record
+     * @param treatmentUpdateDto dto of treatment to add to medical record
+     * @return response message if treatment is successfully updated
+     * @throws Exception thrown when medical record cannot be found
      */
-    @PutMapping("/updateTreatment")
+    @PutMapping("/updatetreatment")
     @PreAuthorize("hasRole('PHYSICIAN')")
-    public ResponseEntity<?> updateTreatment(@RequestParam Long recordId, @RequestBody TreatmentUpdateDto treatmentUpdateDto)
-            throws Exception {
-        Treatment treatment = modelMapper.map(treatmentUpdateDto, Treatment.class);
+    public ResponseEntity<?> updateTreatment(@RequestParam Long recordId,@RequestBody TreatmentUpdateDto treatmentUpdateDto)
+            throws Exception{
+        Treatment treatment = modelMapper.map(treatmentUpdateDto,Treatment.class);
         Optional<MedicalRecord> medicalRecord = medicalRecordRepository.findById(recordId);
-        if (!medicalRecord.isPresent())
+        if(!medicalRecord.isPresent())
             throw new Exception("Medical record not found");
         treatment.setId(medicalRecord.get().getTreatment().getId());
         treatment = treatmentRepository.save(treatment);
@@ -196,16 +204,17 @@ public class PhysicianController {
     }
 
     /**
+     * endpoint for dismissing the medical record of a patient
      *
-     * @param recordid
-     * @return
-     * @throws Exception
+     * @param recordid id of medical record
+     * @return response message if medical record of patient is successfully dismissed
+     * @throws Exception thrown when medical record cannot be found
      */
-    @PostMapping("dismissPatient")
+    @PostMapping("/dismissPatient")
     @PreAuthorize("hasRole('PHYSICIAN')")
-    public ResponseEntity<?> dismissPatient(@RequestParam Long recordid) throws Exception {
+    public ResponseEntity<?> dismissPatient(@RequestParam Long recordid) throws Exception{
         Optional<MedicalRecord> medicalRecord = medicalRecordRepository.findById(recordid);
-        if (!medicalRecord.isPresent())
+        if(!medicalRecord.isPresent())
             throw new Exception("Medical record not found");
         medicalRecord.get().setStatus(Status.DISMISS);
         medicalRecordRepository.save(medicalRecord.get());

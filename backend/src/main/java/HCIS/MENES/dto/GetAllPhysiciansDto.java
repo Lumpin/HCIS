@@ -15,8 +15,9 @@ public class GetAllPhysiciansDto {
    List<PhysicianListDto> physiciansData = new ArrayList<>();
 
     /**
+     * creates dto of physicians list
      *
-     * @param physicians
+     * @param physicians List of physicians
      */
     public  void createPhysicianListDto(List<Physician> physicians){
         for (Physician phy:physicians
@@ -32,6 +33,9 @@ public class GetAllPhysiciansDto {
 
     }
 
+    /*  dto for physician list
+
+     */
     @Data
     private class PhysicianListDto{
         private Long id;

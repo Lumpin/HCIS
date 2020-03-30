@@ -7,7 +7,6 @@ import javax.persistence.*;
 /* Entity for the insurance details object consisting of id and name
 
  */
-
 @Data
 @Entity
 public class Insurance {
@@ -19,6 +18,6 @@ public class Insurance {
     private String name;
 
     @Column
-    private String insuranceid;
+    private String insuranceId;
 
 }

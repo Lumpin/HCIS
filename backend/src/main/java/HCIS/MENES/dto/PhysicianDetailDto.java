@@ -11,5 +11,5 @@ public class PhysicianDetailDto {
     private String surname;
     private String email;
     private String address;
-    private String phonenumber;
+    private String phoneNumber;
 }

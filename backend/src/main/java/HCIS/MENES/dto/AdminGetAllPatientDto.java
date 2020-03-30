@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Data Tranfer Object of relevant information of user for a admin
+/*
+    Data Transfer Object of relevant information of user for a admin
  *
  */
 @Data
@@ -18,8 +19,8 @@ public class AdminGetAllPatientDto {
     private List<GetPatientDto>  getAllPatientDtos= new ArrayList<>();
 
     /**
-     *
-     * @param patient
+     * adds a patient
+     * @param patient Patient object
      */
     public void add(Patient patient){
         GetPatientDto getPatientDto = new GetPatientDto();
@@ -31,6 +32,9 @@ public class AdminGetAllPatientDto {
     }
 
 
+    /*
+     * dto for getting patient
+     */
     @Data
     @NoArgsConstructor
     @AllArgsConstructor

@@ -13,8 +13,10 @@ import java.util.List;
 public class GetMedicalRecordDtoList {
 
     private List<MedicalListDto> medicalListDtoList = new ArrayList<>();
-    @Data
 
+    /* dto of medical list
+     */
+    @Data
     private  class MedicalListDto{
         private Long id;
         private Long physicianId;
@@ -23,10 +25,11 @@ public class GetMedicalRecordDtoList {
     }
 
     /**
+     * makes dto of medical record list
      *
-     * @param list
+     * @param list list of medical records
      */
-    public void makeMedicalRedorcDtoList(List<MedicalRecord> list){
+    public void makeMedicalRecordDtoList(List<MedicalRecord> list){
         for (MedicalRecord medicalRecord: list
              ) {
             MedicalListDto temp = new MedicalListDto();

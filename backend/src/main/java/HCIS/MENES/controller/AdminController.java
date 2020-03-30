@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Objects;
 
 /*
-    Controller class for Admin, manages the endpoints: /createPhysician, /deletePhysician, /admin/getAllPatients, /admin/deletePatient
+    Controller class for Admin, manages the endpoints
 
  */
 @RestController
@@ -40,37 +40,42 @@ public class AdminController {
     private ModelMapper modelMapper;
 
     /**
-     * @param physicianCreateDto
-     * @return
-     * @throws Exception
+     * endpoint for creating new physician
+     *
+     * @param physicianCreateDto information needed for creating physician
+     * @return response 'success'
+     * @throws Exception thrown when no physician can be created
      */
     @PostMapping("/createPhysician")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> createPhysician(@RequestBody PhysicianCreateDto physicianCreateDto) throws Exception {
-        User user = modelMapper.map(physicianCreateDto, User.class);
+    public ResponseEntity<?> createPhysician(@RequestBody PhysicianCreateDto physicianCreateDto) throws Exception{
+        User user = modelMapper.map(physicianCreateDto,User.class);
         user.setRole(Roles.PHYSICIAN);
         try {
             user = userRepository.save(user);
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             throw new Exception("Cannot create User");
         }
         Physician physician = new Physician();
         physician.setUser(user);
         physicianRepository.save(physician);
-        return new ResponseEntity<>("Success", HttpStatus.OK);
+        return new ResponseEntity<>("Sucess",HttpStatus.OK);
     }
 
     /**
-     * @param physicianId
-     * @return
-     * @throws Exception
+     * endpoint for deleting physician
+     *
+     * @param physicianId id of physician which is deleted
+     * @return status message
+     * @throws Exception thrown when no physician is found
      */
     @PostMapping("/deletePhysician/")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> deletePhysician(@RequestParam Long physicianId) throws Exception {
+    public ResponseEntity<?> deletePhysician(@RequestParam Long physicianId) throws Exception{
         Physician physician = physicianRepository.getOne(physicianId);
-        if (Objects.isNull(physician))
+        if(Objects.isNull(physician))
             throw new Exception("Physician not found");
         List<MedicalRecord> medicalRecordList = medicalRecordRespository.getMedicalRecordsByPhysicianId(physicianId);
         medicalRecordRespository.deleteAll(medicalRecordList);
@@ -79,32 +84,37 @@ public class AdminController {
     }
 
     /**
-     * @return
+     * endpoint for listing all patients
+     *
+     * @return dto of all patients
      */
-    @GetMapping("/admin/getAllPatients")
+    @GetMapping("/admin/getallpatients")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> getAllPatients() {
+    public ResponseEntity<?> getAllPatients(){
         AdminGetAllPatientDto adminGetAllPatientDto = new AdminGetAllPatientDto();
         List<Patient> patients = patientRepository.findAll();
-        for (Patient patient : patients
+        for (Patient patient: patients
         ) {
             adminGetAllPatientDto.add(patient);
         }
-        return new ResponseEntity<>(adminGetAllPatientDto, HttpStatus.OK);
+        return new ResponseEntity<>(adminGetAllPatientDto,HttpStatus.OK);
     }
 
     /**
-     * @param patientId
-     * @return
-     * @throws Exception
+     * endpoint for deleting patient with id patientID
+     *
+     *
+     * @param patientId id of patient
+     * @return status message when deletion is successful
+     * @throws Exception thrown when no patient with id can be found
      */
     @PostMapping("/admin/deletePatient/")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> deletePatient(@RequestParam Long patientId) throws Exception {
+    public ResponseEntity<?> deletePatient(@RequestParam Long patientId) throws Exception{
         Patient patient = patientRepository.getOne(patientId);
-        if (Objects.isNull(patient))
+        if(Objects.isNull(patient))
             throw new Exception("Patient not found");
-        List<MedicalRecord> medicalRecordList = medicalRecordRespository.getMedicalRecordsFromPatientId(patientId);
+        List<MedicalRecord> medicalRecordList = medicalRecordRespository.getMedicalRecordsfromPatientId(patientId);
         medicalRecordRespository.deleteAll(medicalRecordList);
         patientRepository.delete(patient);
         return new ResponseEntity<>(HttpStatus.OK);

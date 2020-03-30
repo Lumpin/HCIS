@@ -2,18 +2,18 @@ package HCIS.MENES.models;
 
 import java.io.Serializable;
 
-/* Model for the authentication request object, sets and gets username and password of users
+/*
+    Model for the authentication request object, sets and gets username and password of users
  *
  */
 public class AuthenticationRequest implements Serializable {
-
 
     private String username;
     private String password;
 
     /**
      *
-     * @return
+     * @return username
      */
     public String getUsername() {
         return username;
@@ -21,7 +21,7 @@ public class AuthenticationRequest implements Serializable {
 
     /**
      *
-     * @param username
+     * @param username username
      */
     public void setUsername(String username) {
         this.username = username;
@@ -29,7 +29,7 @@ public class AuthenticationRequest implements Serializable {
 
     /**
      *
-     * @return
+     * @return password
      */
     public String getPassword() {
         return password;
@@ -37,7 +37,7 @@ public class AuthenticationRequest implements Serializable {
 
     /**
      *
-     * @param password
+     * @param password password
      */
     public void setPassword(String password) {
         this.password = password;
@@ -51,8 +51,8 @@ public class AuthenticationRequest implements Serializable {
 
     /**
      *
-     * @param username
-     * @param password
+     * @param username username
+     * @param password password
      */
     public AuthenticationRequest(String username, String password) {
         this.setUsername(username);

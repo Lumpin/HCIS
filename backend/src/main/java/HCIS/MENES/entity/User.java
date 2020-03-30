@@ -40,7 +40,7 @@ public class User implements UserDetails {
 
     /**
      *
-     * @return
+     * @return String of password of user
      */
     @Override
     public String getPassword() {
@@ -49,7 +49,7 @@ public class User implements UserDetails {
 
     /**
      *
-     * @return
+     * @return String of username of user
      */
     @Override
     public String getUsername() {
@@ -58,7 +58,7 @@ public class User implements UserDetails {
 
     /**
      *
-     * @return
+     * @return false
      */
     @Override
     public boolean isAccountNonExpired() {
@@ -67,7 +67,7 @@ public class User implements UserDetails {
 
     /**
      *
-     * @return
+     * @return false
      */
     @Override
     public boolean isAccountNonLocked() {
@@ -76,7 +76,7 @@ public class User implements UserDetails {
 
     /**
      *
-     * @return
+     * @return false
      */
     @Override
     public boolean isCredentialsNonExpired() {
@@ -85,7 +85,7 @@ public class User implements UserDetails {
 
     /**
      *
-     * @return
+     * @return false
      */
     @Override
     public boolean isEnabled() {
