@@ -38,11 +38,19 @@ public class HCISApplication {
 	private PhysicianRepository physicianRepository;
 	@Autowired
 	private UserRepository userRepository;
+
+	/**
+	 * main method
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(HCISApplication.class, args);
 
 	}
 
+	/**
+	 *
+	 */
 	@PostConstruct
 	private void init(){
 		Optional<User> adminCheck = userRepository.findById((long)1);
@@ -69,7 +77,7 @@ public class HCISApplication {
 
 		/**
 		 *
-		 * @param auth
+		 * @param auth AuthenticationManagerBuilder object
 		 * @throws Exception
 		 */
 		@Autowired

@@ -5,6 +5,9 @@ import lombok.Data;
 import javax.persistence.Column;
 import java.util.Date;
 
+/*  dto for passing patient detail
+
+ */
 @Data
 public class PatientDetailsDto {
     @Column

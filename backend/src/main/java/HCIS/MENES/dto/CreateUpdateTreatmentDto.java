@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.util.Date;
 
+/* dto for passing information for creating a new treatment
+
+ */
 @Data
 public class CreateUpdateTreatmentDto {
     private Date treatmentDate;

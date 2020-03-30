@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.util.Date;
 
+/*  dto for passing patient information saved on patient details site
+
+ */
 @Data
 public class PatientResponseDto {
 

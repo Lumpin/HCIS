@@ -8,6 +8,9 @@ import lombok.Data;
 
 import java.util.List;
 
+/*  dto for passing information of a single medical record
+
+ */
 @Data
 public class SingleMedicalRecordDto {
     private String recordName;

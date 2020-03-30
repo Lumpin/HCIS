@@ -8,12 +8,19 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Data Tranfer Object of relevant information of user for a admin
+ *
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdminGetAllPatientDto {
     private List<GetPatientDto>  getAllPatientDtos= new ArrayList<>();
 
+    /**
+     *
+     * @param patient
+     */
     public void add(Patient patient){
         GetPatientDto getPatientDto = new GetPatientDto();
         getPatientDto.id = patient.getId();
@@ -22,6 +29,7 @@ public class AdminGetAllPatientDto {
         getPatientDto.surname = patient.getSurname();
         getAllPatientDtos.add(getPatientDto);
     }
+
 
     @Data
     @NoArgsConstructor
@@ -33,8 +41,4 @@ public class AdminGetAllPatientDto {
         private String email;
 
     }
-
-
-
-
 }

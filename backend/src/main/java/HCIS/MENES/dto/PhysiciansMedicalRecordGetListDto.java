@@ -8,21 +8,32 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+/*  dto for passing a list of medical records
+
+ */
 @Data
 public class PhysiciansMedicalRecordGetListDto {
-    List<PysiciansMedicalRecordGetDto> list = new ArrayList<>();
+    List<PhysiciansMedicalRecordGetDto> list = new ArrayList<>();
 
+    /**
+     *
+     * @param medicalRecord
+     */
     public void addToList(MedicalRecord medicalRecord){
-        list.add(new PysiciansMedicalRecordGetDto(medicalRecord.getRecordName(),
+        list.add(new PhysiciansMedicalRecordGetDto(medicalRecord.getRecordName(),
                 medicalRecord.getId(),
                 medicalRecord.getPatient().getName(),medicalRecord.getPatient().getId()));
     }
 
 }
+
+/*  dto for passing information of a medical record, which is used by dto PhysiciansMedicalRecordGetListDto
+
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-class  PysiciansMedicalRecordGetDto{
+class PhysiciansMedicalRecordGetDto {
     private String recordName;
     private Long recordId;
     private String patientName;

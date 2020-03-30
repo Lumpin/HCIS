@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/*  dto for passing information for updating/creating a treatment
+
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

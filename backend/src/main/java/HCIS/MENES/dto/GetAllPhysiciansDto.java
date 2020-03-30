@@ -6,12 +6,18 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+/* dto for passing a list of all physician data
+
+ */
 @Data
 public class GetAllPhysiciansDto {
 
+   List<PhysicianListDto> physiciansData = new ArrayList<>();
 
-    List<PhysicianListDto> physiciansData = new ArrayList<>();
-
+    /**
+     *
+     * @param physicians
+     */
     public  void createPhysicianListDto(List<Physician> physicians){
         for (Physician phy:physicians
              ) {
@@ -25,6 +31,7 @@ public class GetAllPhysiciansDto {
         }
 
     }
+
     @Data
     private class PhysicianListDto{
         private Long id;

@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 /*
-
+    Entity for the user consist of id, username, password and role; can be disabled or enabled
  */
 @Data
 @Entity

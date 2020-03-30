@@ -22,13 +22,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+
+/*  Controller class for physicians with endpoints: /updatePhysician, /getPhysicianDetails, /makeTreatment, /getPatients, /getPatientDetails,
+    /getMedicalRecordById, /updateMedicalRecord, /updateTreatment, /dismissTreatment
+
+ */
 @RestController
 public class PhysicianController {
+
     @Autowired
     private TreatmentRepository treatmentRepository;
     @Autowired
     private PhysicianRepository physicianRepository;
-
     @Autowired
     private MedicalRecordRespository medicalRecordRepository;
     @Autowired
@@ -36,11 +41,17 @@ public class PhysicianController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @PutMapping("/updatephysician")
+    /**
+     *
+     * @param principal
+     * @param physicianUpdateDto
+     * @return
+     */
+    @PutMapping("/updatePhysician")
     @PreAuthorize("hasRole('PHYSICIAN')")
     public ResponseEntity<?> updatePhysicianDetail(Principal principal, @RequestBody PhysicianUpdateDto physicianUpdateDto) {
         User user = userRepository.findUserByUsername(principal.getName());
-        Physician physician = physicianRepository.getphysicianbyusername(principal.getName());
+        Physician physician = physicianRepository.getPhysicianByUsername(principal.getName());
         Physician newPhysician = modelMapper.map(physicianUpdateDto, Physician.class);
         newPhysician.setId(physician.getId());
         newPhysician.setUser(physician.getUser());
@@ -48,15 +59,28 @@ public class PhysicianController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/getphysiciandetail")
+    /**
+     *
+     * @param principal
+     * @return
+     */
+    @GetMapping("/getPhysicianDetail")
     @PreAuthorize("hasRole('PHYSICIAN')")
     public ResponseEntity<?> getPhysicianDetail(Principal principal) {
-        Physician physician = physicianRepository.getphysicianbyusername(principal.getName());
+        Physician physician = physicianRepository.getPhysicianByUsername(principal.getName());
         PhysicianGetResponseDto physicianGetResponseDto = modelMapper.map(physician, PhysicianGetResponseDto.class);
         return new ResponseEntity<>(physicianGetResponseDto, HttpStatus.OK);
     }
 
-    @PostMapping("/maketreatment")
+    /**
+     *
+     * @param principal
+     * @param createUpdateTreatmentDto
+     * @param medicalRecordId
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/makeTreatment")
     @PreAuthorize("hasRole('PATIENT')")
     public ResponseEntity<?> makeMedicalTreatment(Principal principal, @RequestBody CreateUpdateTreatmentDto createUpdateTreatmentDto
             , @RequestParam Long medicalRecordId) throws Exception {
@@ -73,6 +97,11 @@ public class PhysicianController {
 
     }
 
+    /**
+     *
+     * @param principal
+     * @return
+     */
     @GetMapping("/getPatients")
     @PreAuthorize("hasRole('PHYSICIAN')")
     public ResponseEntity<?> getAllPatients(Principal principal) {
@@ -89,21 +118,38 @@ public class PhysicianController {
 
     }
 
+    /**
+     *
+     * @param principal
+     * @param createUpdateTreatmentDto
+     * @return
+     */
     @PutMapping
     @PreAuthorize("hasRole('PHYSICIAN')")
-    public ResponseEntity<?> updatePatientTreantment(Principal principal, @RequestBody CreateUpdateTreatmentDto
+    public ResponseEntity<?> updatePatientTreatment(Principal principal, @RequestBody CreateUpdateTreatmentDto
             createUpdateTreatmentDto) {
         return null;
 
     }
 
-    @GetMapping("/getpatientDetails")
+    /**
+     *
+     * @param patientid
+     * @return
+     */
+    @GetMapping("/getPatientDetails")
     @PreAuthorize("hasRole('PHYSICIAN')")
     public ResponseEntity<?> getPatientMedicalRecords(@RequestParam Long patientid) {
-        return new ResponseEntity<>(medicalRecordRepository.getMedicalRecordsfromPatientId(patientid), HttpStatus.OK);
+        return new ResponseEntity<>(medicalRecordRepository.getMedicalRecordsFromPatientId(patientid), HttpStatus.OK);
     }
 
-    @GetMapping("/getmedicalrecordbyid")
+    /**
+     *
+     * @param medicalid
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/getMedicalRecordById")
     @PreAuthorize("hasRole('PHYSICIAN')")
     public ResponseEntity<?> getMedicalRecordById(@RequestParam Long medicalid) throws Exception {
         MedicalRecord medicalRecord = medicalRecordRepository.getOne(medicalid);
@@ -112,7 +158,13 @@ public class PhysicianController {
         return new ResponseEntity<>(medicalRecord, HttpStatus.OK);
     }
 
-    @PutMapping("/updatemedicalrecord")
+    /**
+     *
+     * @param medicalRecord
+     * @return
+     * @throws Exception
+     */
+    @PutMapping("/updateMedicalRecord")
     @PreAuthorize("hasRole('PHYSICIAN')")
     public ResponseEntity<?> updateMedicalRecord(@RequestParam MedicalRecord medicalRecord)
             throws Exception {
@@ -123,7 +175,14 @@ public class PhysicianController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PutMapping("/updatetreatment")
+    /**
+     *
+     * @param recordId
+     * @param treatmentUpdateDto
+     * @return
+     * @throws Exception
+     */
+    @PutMapping("/updateTreatment")
     @PreAuthorize("hasRole('PHYSICIAN')")
     public ResponseEntity<?> updateTreatment(@RequestParam Long recordId, @RequestBody TreatmentUpdateDto treatmentUpdateDto)
             throws Exception {
@@ -136,6 +195,12 @@ public class PhysicianController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param recordid
+     * @return
+     * @throws Exception
+     */
     @PostMapping("dismissPatient")
     @PreAuthorize("hasRole('PHYSICIAN')")
     public ResponseEntity<?> dismissPatient(@RequestParam Long recordid) throws Exception {
