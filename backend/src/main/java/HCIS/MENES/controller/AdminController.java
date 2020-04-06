@@ -71,7 +71,7 @@ public class AdminController {
      * @return status message
      * @throws Exception thrown when no physician is found
      */
-    @PostMapping("/deletePhysician/")
+    @PostMapping("/deletePhysician")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deletePhysician(@RequestParam Long physicianId) throws Exception{
         Physician physician = physicianRepository.getOne(physicianId);
@@ -104,11 +104,11 @@ public class AdminController {
      * endpoint for deleting patient with id patientID
      *
      *
-     * @param patientId id of patient
+     * @param patientId id of patient 
      * @return status message when deletion is successful
      * @throws Exception thrown when no patient with id can be found
      */
-    @PostMapping("/admin/deletePatient/")
+    @PostMapping("/admin/deletePatient")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deletePatient(@RequestParam Long patientId) throws Exception{
         Patient patient = patientRepository.getOne(patientId);
