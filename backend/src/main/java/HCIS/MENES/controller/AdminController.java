@@ -53,7 +53,6 @@ public class AdminController {
         user.setRole(Roles.PHYSICIAN);
         try {
             user = userRepository.save(user);
-
         }
         catch (Exception e) {
             throw new Exception("Cannot create User");
@@ -61,7 +60,7 @@ public class AdminController {
         Physician physician = new Physician();
         physician.setUser(user);
         physicianRepository.save(physician);
-        return new ResponseEntity<>("Sucess",HttpStatus.OK);
+        return new ResponseEntity<>("Success",HttpStatus.OK);
     }
 
     /**
