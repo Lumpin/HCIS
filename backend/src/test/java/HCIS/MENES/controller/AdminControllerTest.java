@@ -9,6 +9,7 @@ import HCIS.MENES.repositories.PatientRepository;
 import HCIS.MENES.repositories.PhysicianRepository;
 import HCIS.MENES.repositories.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +25,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
+import static org.mockito.hamcrest.MockitoHamcrest.longThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -69,7 +73,7 @@ class AdminControllerTest {
     }
 
 
-    /*
+
     @Test
     @WithMockUser(username = "admin", password = "admin", roles = {"ADMIN"})
     void deletePhysician() throws Exception {
@@ -77,10 +81,11 @@ class AdminControllerTest {
         Long physicianId = (long) 1234;
 
         this.mvc.perform(post("/deletePhysician")
-                .contentType(MediaType.APPLICATION_JSON).content("physicianId"))
-                .andExpect(status().isOk());
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(400));
+
     }
-*/
+
     @Test
     @WithMockUser(username = "admin", password = "admin", roles = {"ADMIN"})
     void getAllPatients() throws Exception {
@@ -90,16 +95,17 @@ class AdminControllerTest {
                 .andExpect(status().isOk());
     }
 
-    /*
+
     @Test
     @WithMockUser(username = "admin", password = "admin", roles = {"ADMIN"})
     void deletePatient() throws Exception {
 
-        Long patientId = (long) 1;
         this.mvc.perform(post("/admin/deletePatient")
-                .contentType(MediaType.APPLICATION_JSON).content("patientId: 1233"))
-                .andExpect(status().isOk());
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(400));
+
+
     }
 
-     */
+
 }
