@@ -49,4 +49,3 @@ You can now login as admin (needed for registering physicians) with following cr
 >
 >password: admin
 
-## Run deployment project
