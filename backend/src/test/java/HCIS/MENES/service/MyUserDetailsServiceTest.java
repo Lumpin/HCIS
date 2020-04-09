@@ -17,6 +17,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
+/*
+    Unit tests for the user service
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class MyUserDetailsServiceTest {
 
